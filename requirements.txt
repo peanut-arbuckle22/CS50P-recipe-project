@@ -1,0 +1,12 @@
+import PySimpleGUI as sg
+from Recipe_Class import Recipe
+import os
+import re
+from bs4 import BeautifulSoup 
+from urllib.request import Request, urlopen, urlretrieve, build_opener, install_opener
+import json
+from PIL import Image
+import textwrap
+import html
+
+    
