@@ -28,8 +28,6 @@ def file_write(recipename, recipetext):
     #create file for new recipe input by user
     with open(recipename, "w+") as file:
         file.write(recipetext)
-def file_name_fix(filename):
-    return re.sub(r'[\\/*?:"<>|]',"",filename)
 
 
 def main():
@@ -224,7 +222,7 @@ def main():
 
             if saveyn == "Yes":
                 name = results.name
-                name = file_name_fix(name)
+                name = re.sub(r'[\\/*?:"<>|]',"", name)
                 filenamecheck = os.listdir("recipes")
                 if f"{name.lower()}.txt" in (extfilename.lower() for extfilename in filenamecheck):
                     extduplicatefile = sg.popup_yes_no(f"{name} already exists, would you like overwrite {name}?")
